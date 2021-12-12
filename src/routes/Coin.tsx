@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import {
 	Routes,
 	Route,
@@ -78,6 +78,22 @@ const Tab = styled.span<{ isActive: boolean }>`
 	a {
 		padding: 7px 0px;
 		display: block;
+	}
+`;
+
+const BackBtn = styled.div`
+	width: 30px;
+	height: 30px;
+	border-radius:50%;
+	border: 2px solid #fff;
+	color: #fff;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	&:hover {
+		border: 2px solid ${(props) => props.theme.accentColor};
+		color: ${(props) => props.theme.accentColor};
 	}
 `;
 
@@ -169,6 +185,9 @@ function Coin() {
 				</title>
 			</Helmet>
 			<Header>
+				<BackBtn>
+					<Link to="/">&larr;</Link>
+				</BackBtn>
 				<Title>
 					{state?.name ? state.name : loading ? "Loading..." : infoData?.name}
 				</Title>

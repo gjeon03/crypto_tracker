@@ -34,6 +34,24 @@ const Header = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+`;
+const BackBtn = styled.div`
+	width: 30px;
+	height: 30px;
+	border-radius:50%;
+	border: 2px solid #fff;
+	color: #fff;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	position: absolute;
+	left: 0;
+	&:hover {
+		border: 2px solid ${(props) => props.theme.accentColor};
+		color: ${(props) => props.theme.accentColor};
+	}
 `;
 
 const Overview = styled.div`
@@ -78,22 +96,6 @@ const Tab = styled.span<{ isActive: boolean }>`
 	a {
 		padding: 7px 0px;
 		display: block;
-	}
-`;
-
-const BackBtn = styled.div`
-	width: 30px;
-	height: 30px;
-	border-radius:50%;
-	border: 2px solid #fff;
-	color: #fff;
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 30px;
-	&:hover {
-		border: 2px solid ${(props) => props.theme.accentColor};
-		color: ${(props) => props.theme.accentColor};
 	}
 `;
 

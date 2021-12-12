@@ -69,10 +69,10 @@ function Coins() {
 	return (
 		<Container>
 			<Helmet>
-				<title>코인</title>
+				<title>Coin Info</title>
 			</Helmet>
 			<Header>
-				<Title>코인</Title>
+				<Title>Coin Info</Title>
 			</Header>
 			{isLoading ? (
 				<Loader>Loading...</Loader>
@@ -84,7 +84,7 @@ function Coins() {
 								to={{
 									pathname: `/${coin.id}`,
 								}}
-								state={{name: coin.name }}
+								state={{ name: coin.name }}
 							>
 								<Img
 									src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}

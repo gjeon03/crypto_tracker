@@ -35,13 +35,14 @@ const Header = styled.header`
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	font-weight: 500;
 `;
 const BackBtn = styled.div`
 	width: 30px;
 	height: 30px;
 	border-radius:50%;
-	border: 2px solid #fff;
-	color: #fff;
+	border: 2px solid ${props => props.theme.textColor};
+	color: ${props => props.theme.textColor};
 	display:flex;
 	justify-content: center;
 	align-items: center;
@@ -57,7 +58,8 @@ const BackBtn = styled.div`
 const Overview = styled.div`
 	display: flex;
 	justify-content: space-between;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: ${props => props.theme.boxColor};
+	border: 1px solid ${props => props.theme.textColor};
 	padding: 10px 20px;
 	border-radius: 10px;
 `;
@@ -66,6 +68,7 @@ const OverviewItem = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 33%;
+	color: ${props => props.theme.textColor};
 	span:first-child {
 		font-size: 10px;
 		font-weight: 400;
@@ -89,10 +92,11 @@ const Tab = styled.span<{ isActive: boolean }>`
 	text-transform: uppercase;
 	font-size: 12px;
 	font-weight: 400;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: ${props => props.theme.boxColor};
 	border-radius: 10px;
+	border: 1px solid ${props => props.theme.textColor};
 	color: ${(props) =>
-		props.isActive ? props.theme.accentColor : props.theme.textColor};
+		props.isActive ? props.theme.accentColor : props => props.theme.textColor};
 	a {
 		padding: 7px 0px;
 		display: block;
@@ -104,7 +108,7 @@ interface RouteParams {
 }
 
 interface RouteState {
-	state:{
+	state: {
 		name: string;
 	}
 }
@@ -140,30 +144,30 @@ interface PriceData {
 	first_data_at: string;
 	last_updated: string;
 	quotes: {
-	  USD: {
-		ath_date: string;
-		ath_price: number;
-		market_cap: number;
-		market_cap_change_24h: number;
-		percent_change_1h: number;
-		percent_change_1y: number;
-		percent_change_6h: number;
-		percent_change_7d: number;
-		percent_change_12h: number;
-		percent_change_15m: number;
-		percent_change_24h: number;
-		percent_change_30d: number;
-		percent_change_30m: number;
-		percent_from_price_ath: number;
-		price: number;
-		volume_24h: number;
-		volume_24h_change_24h: number;
+		USD: {
+			ath_date: string;
+			ath_price: number;
+			market_cap: number;
+			market_cap_change_24h: number;
+			percent_change_1h: number;
+			percent_change_1y: number;
+			percent_change_6h: number;
+			percent_change_7d: number;
+			percent_change_12h: number;
+			percent_change_15m: number;
+			percent_change_24h: number;
+			percent_change_30d: number;
+			percent_change_30m: number;
+			percent_from_price_ath: number;
+			price: number;
+			volume_24h: number;
+			volume_24h_change_24h: number;
 		};
 	};
 }
 
 function Coin() {
-	const {coinId} = useParams<keyof RouteParams>() as RouteParams;
+	const { coinId } = useParams<keyof RouteParams>() as RouteParams;
 	const { state } = useLocation() as RouteState;
 	const priceMatch = useMatch("/:coinId/price");
 	const chartMatch = useMatch("/:coinId/chart");
@@ -232,8 +236,8 @@ function Coin() {
 						</Tab>
 					</Tabs>
 					<Routes>
-						<Route path="price" element={<Price tickersData={tickersData}/>}/>
-						<Route path="chart" element={<Chart coinId={coinId}/>}/>
+						<Route path="price" element={<Price tickersData={tickersData} />} />
+						<Route path="chart" element={<Chart coinId={coinId} />} />
 					</Routes>
 				</>
 			)}

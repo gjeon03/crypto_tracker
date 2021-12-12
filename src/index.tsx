@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ThemeProvider } from 'styled-components';
 import App from './App';
-import {theme} from "./theme";
-import {HelmetProvider} from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+import { RecoilRoot } from "recoil"
 
 const queryClient = new QueryClient();
 const helmetContext = {};
@@ -12,11 +11,11 @@ const helmetContext = {};
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <HelmetProvider context={helmetContext}>
+      <HelmetProvider context={helmetContext}>
+        <RecoilRoot>
           <App />
-        </HelmetProvider>
-      </ThemeProvider>
+        </RecoilRoot>
+      </HelmetProvider>
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')

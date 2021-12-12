@@ -14,8 +14,9 @@ const PriceBox = styled.div`
 	align-items: center;
 	padding: 10px;
 	border-radius: 10px;
-	background-color: ${(props) => props.theme.textColor};
-	color: #171B1F;
+	background-color: ${(props) => props.theme.boxColor};
+	border: 1px solid ${props => props.theme.textColor};
+	color: ${(props) => props.theme.textColor};
 	font-weight:500;
 `;
 

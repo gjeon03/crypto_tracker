@@ -84,10 +84,10 @@ function Coins() {
 	return (
 		<Container>
 			<Helmet>
-				<title>Coin Info</title>
+				<title>Coin</title>
 			</Helmet>
 			<Header>
-				<Title>Coin Info</Title>
+				<Title>Coin</Title>
 				<div>
 					<DarkModeToggle
 						onChange={toggleDarkAtom}

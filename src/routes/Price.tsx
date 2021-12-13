@@ -1,5 +1,3 @@
-import { useQuery } from "react-query";
-import { fetchCoinTickers } from "../api";
 import styled from "styled-components";
 
 const PriceContainer = styled.div`
